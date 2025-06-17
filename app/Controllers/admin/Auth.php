@@ -7,7 +7,7 @@ namespace App\Controllers\admin;
 use App\Models\UserModel;
 use CodeIgniter\Controller;
 
-class Auth extends Controller
+class Auth extends BaseController
 {
     public function index()
     {

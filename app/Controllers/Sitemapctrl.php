@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\user;
+namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\AboutUsModel;
@@ -31,7 +31,7 @@ use App\Models\UserModel;
 use App\Models\USPModel;
 
 
-class SitemapController extends BaseController
+class Sitemapctrl extends BaseController
 {
     protected $homepageModel;
     protected $aboutUsModel;

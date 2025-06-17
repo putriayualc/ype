@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace App\Controllers\admin;
 
-use App\Controllers\BaseController;
+use App\Controllers\admin\BaseController;
 use App\Models\ContactUsModel;
 
 class ContactUsController extends BaseController

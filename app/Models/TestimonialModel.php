@@ -12,7 +12,7 @@ class TestimonialModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['rating', 'name', 'description_id', 'description_en','image'];
+    protected $allowedFields    = ['rating', 'name', 'description_id', 'description_en','image','alt_image'];
 
     protected bool $allowEmptyInserts = false;
 

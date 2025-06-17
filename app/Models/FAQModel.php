@@ -12,8 +12,8 @@ class FAQModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['
-    id_faq_category', 
+    protected $allowedFields    = [
+    'id_faq_category', 
     'title_id', 
     'title_en', 
     'description_id', 

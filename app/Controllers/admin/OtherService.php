@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace App\Controllers\admin;
 
 use App\Models\OtherServicesModel;
 use App\Models\ServicesModel;
 use CodeIgniter\Controller;
 
-class OtherService extends Controller
+class OtherService extends BaseController
 {
     protected $otherServicesModel;
     protected $ServicesModel;

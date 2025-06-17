@@ -2,7 +2,7 @@
 
 namespace App\Controllers\admin;
 
-use App\Controllers\BaseController;
+use App\Controllers\admin\BaseController;
 use App\Models\TestimonialModel;
 
 class Testimonialctrl extends BaseController
@@ -53,7 +53,7 @@ public function proses_tambah()
     // Validate data
     if (!$this->validate([
         'image' => [
-            'rules' => 'uploaded[image]|is_image[image]|max_size[image,5120]|mime_in[image,image/webp,image/svg]',
+            'rules' => 'uploaded[image]|is_image[image]|max_size[image,5120]|mime_in[image,image/webp,image/svg+xml]',
             'errors' => [
                 'uploaded' => 'Pilih foto terlebih dahulu',
                 'is_image' => 'File yang anda pilih bukan gambar',

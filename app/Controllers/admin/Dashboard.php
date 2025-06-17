@@ -4,7 +4,7 @@ namespace App\Controllers\admin;
 
 use CodeIgniter\Controller;
 
-class Dashboard extends Controller
+class Dashboard extends BaseController
 {
     public function index()
     {

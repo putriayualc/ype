@@ -2,7 +2,7 @@
 
 namespace App\Controllers\admin;
 
-use App\Controllers\BaseController;
+use App\Controllers\admin\BaseController;
 use App\Models\CommitmentModel;
 
 class Commitment extends BaseController

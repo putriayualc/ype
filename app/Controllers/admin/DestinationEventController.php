@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace App\Controllers\admin;
 
 use App\Models\DestinationEventModel;
 use App\Models\ServicesModel;
 use CodeIgniter\Controller;
 
-class DestinationEventController extends Controller
+class DestinationEventController extends BaseController
 {
     protected $destinationEventModel;
     protected $ServicesModel;

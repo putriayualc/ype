@@ -5,7 +5,7 @@ namespace App\Controllers\admin;
 use App\Models\ServicesModel;
 use CodeIgniter\Controller;
 
-class PrivateTourCtrl extends Controller
+class PrivateTourCtrl extends BaseController
 {
     protected $ServicesModel;
 

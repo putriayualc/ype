@@ -2,7 +2,7 @@
 
 namespace App\Controllers\admin;
 
-use App\Controllers\BaseController;
+use App\Controllers\admin\BaseController;
 use App\Models\ImageArticleModel;
 
 class ImageArticlectrl extends BaseController
@@ -58,7 +58,7 @@ class ImageArticlectrl extends BaseController
         // Handle the uploaded image
         $image = $this->request->getFile('image');
         $imageName = $image->getRandomName();
-        $image->move(FCPATH . 'assets/images/image_articles/', $imageName);
+        $image->move(FCPATH . 'assets/images/blogs/', $imageName);
 
         // Save the data to the database
         $data = [
@@ -104,23 +104,24 @@ class ImageArticlectrl extends BaseController
                     'max_size' => 'Ukuran gambar tidak boleh lebih dari 5 MB.'
                 ]
             ],
-            'slug' => 'required'
+            'url' => 'required'
         ];
 
         if (!$this->validate($validationRules)) {
-            return redirect()->back()->withInput()->with('validation', $this->validator);
+            return redirect()->back()->with('validation', \Config\Services::validation());
         }
 
         $data = [
             'article_id' => $this->request->getPost('article_id'),
-            'slug' => $this->request->getPost('slug')
+            'url' => $this->request->getPost('url'),
+            'alt_image' => $this->request->getPost('alt_imag')
         ];
 
         // Handle the uploaded image
         $image = $this->request->getFile('image');
         if ($image && $image->isValid() && !$image->hasMoved()) {
             $imageName = $image->getRandomName();
-            $image->move(FCPATH . 'assets/images/image_articles/', $imageName);
+            $image->move(FCPATH . 'assets/images/blogs/', $imageName);
             $data['url'] = $imageName; // Save the new image filename
         }
 

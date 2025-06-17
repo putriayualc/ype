@@ -6,7 +6,7 @@ use App\Models\VIPModel;
 use App\Models\ServicesModel; // Include ServicesModel
 use CodeIgniter\Controller;
 
-class Vipctrl extends Controller
+class Vipctrl extends BaseController
 {
     protected $VIPModel;
     protected $ServicesModel;

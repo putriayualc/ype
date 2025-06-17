@@ -2,7 +2,7 @@
 
 namespace App\Controllers\admin;
 
-use App\Controllers\BaseController;
+use App\Controllers\admin\BaseController;
 use App\Models\SocialMediaModel;
 
 class SosialMediactrl extends BaseController

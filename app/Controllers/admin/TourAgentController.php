@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace App\Controllers\admin;
 
+use App\Controllers\admin\BaseController;
 use App\Models\TourAgentModelModel;
 use App\Models\ServicesModel;
 use App\Models\TourAgentModel;
 use CodeIgniter\Controller;
 
-class TourAgentController extends Controller
+class TourAgentController extends BaseController
 {
     protected $tourAgentModel;
     protected $ServicesModel;

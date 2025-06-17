@@ -12,7 +12,7 @@ class CommitmentModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['title_id', 'title_en', 'slug', 'image'];
+    protected $allowedFields    = ['title_id', 'title_en', 'slug', 'image', 'alt_image'];
 
     protected bool $allowEmptyInserts = false;
 

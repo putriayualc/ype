@@ -34,9 +34,9 @@
 
                                 <div class="mb-3">
                                     <label class="form-label">Upload Gambar</label>
-                                    <input type="file" class="form-control <?= ($validation->hasError('image')) ? 'is-invalid' : '' ?>" id="image" name="image">
+                                    <input type="file" class="form-control <?= isset($validation) && ($validation->hasError('image')) ? 'is-invalid' : '' ?>" id="image" name="image">
                                     <div class="invalid-feedback">
-                                        <?= $validation->getError('image') ?>
+                                        <?= isset($validation) ? $validation->getError('image') : '' ?>
                                     </div>
                                 </div>
 

@@ -223,6 +223,27 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
         $routes->get('edit/(:num)', 'HomepageController::edit/$1');
         $routes->post('update/(:num)', 'HomepageController::update/$1');
     });
+
+    $routes->get('admin/itinerary/', 'admin\ItineraryController::index');
+    $routes->get('admin/itinerary/create', 'admin\ItineraryController::create');
+    $routes->post('admin/itinerary/store', 'admin\ItineraryController::store');
+    $routes->get('admin/itinerary/edit/(:num)', 'admin\ItineraryController::edit/$1');
+    $routes->post('admin/itinerary/update/(:num)', 'admin\ItineraryController::update/$1');
+    $routes->get('admin/itinerary/delete/(:num)', 'admin\ItineraryController::delete/$1');
+
+    $routes->get('admin/corporate_agent/', 'admin\CorporateAgentController::index');
+    $routes->get('admin/corporate_agent/create', 'admin\CorporateAgentController::create');
+    $routes->post('admin/corporate_agent/store', 'admin\CorporateAgentController::store');
+    $routes->get('admin/corporate_agent/edit/(:num)', 'admin\CorporateAgentController::edit/$1');
+    $routes->post('admin/corporate_agent/update/(:num)', 'admin\CorporateAgentController::update/$1');
+    $routes->get('admin/corporate_agent/delete/(:num)', 'admin\CorporateAgentController::delete/$1');
+
+    $routes->get('admin/detail_other_services/', 'admin\DetailOtherServicesController::index');
+    $routes->get('admin/detail_other_services/create', 'admin\DetailOtherServicesController::create');
+    $routes->post('admin/detail_other_services/store', 'admin\DetailOtherServicesController::store');
+    $routes->get('admin/detail_other_services/edit/(:num)', 'admin\DetailOtherServicesController::edit/$1');
+    $routes->post('admin/detail_other_services/update/(:num)', 'admin\DetailOtherServicesController::update/$1');
+    $routes->get('admin/detail_other_services/delete/(:num)', 'admin\DetailOtherServicesController::delete/$1');
     
 });
 
