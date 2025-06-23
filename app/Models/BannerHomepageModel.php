@@ -4,15 +4,20 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ImageDescriptionDestinationModel extends Model
+class BannerHomepageModel extends Model
 {
-    protected $table            = 'image_description_destination';
+    protected $table            = 'banner_homepage';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['destination_id', 'title_id', 'title_en', 'slug', 'alt_image', 'url'];
+    protected $allowedFields    = [
+         'title_id',
+        'title_en',
+        'slug',
+        'url'
+    ];
 
     protected bool $allowEmptyInserts = false;
 
@@ -39,17 +44,4 @@ class ImageDescriptionDestinationModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-     // Join with destinations table
-    public function getImagesWithDestination()
-    {
-        return $this->select('image_description_destination.*, destination.title as destination_name')
-                   ->join('destination', 'destination.id = image_description_destination.destination_id')
-                   ->findAll();
-    }
-
-    public function getByDestination($destination_id)
-    {
-        return $this->where('destination_id', $destination_id)->findAll();
-    }
 }

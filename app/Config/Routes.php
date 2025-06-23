@@ -1,4 +1,4 @@
-<?php   
+<?php
 
 use CodeIgniter\Router\RouteCollection;
 
@@ -244,8 +244,79 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
     $routes->get('admin/detail_other_services/edit/(:num)', 'admin\DetailOtherServicesController::edit/$1');
     $routes->post('admin/detail_other_services/update/(:num)', 'admin\DetailOtherServicesController::update/$1');
     $routes->get('admin/detail_other_services/delete/(:num)', 'admin\DetailOtherServicesController::delete/$1');
-    
-});
 
-// Page not found handler
-$routes->set404Override('App\Controllers\ErrorController::show404');
+    $routes->get('admin/other_footer/', 'admin\OtherFooter::index');
+    $routes->get('admin/other_footer/create', 'admin\OtherFooter::create');
+    $routes->post('admin/other_footer/store', 'admin\OtherFooter::store');
+    $routes->get('admin/other_footer/detail/(:num)', 'admin\OtherFooter::detail/$1');
+    $routes->get('admin/other_footer/edit/(:num)', 'admin\OtherFooter::edit/$1');
+    $routes->post('admin/other_footer/update/(:num)', 'admin\OtherFooter::update/$1');
+    $routes->get('admin/other_footer/delete/(:num)', 'admin\OtherFooter::delete/$1');
+
+    $routes->group('admin/target_market', ['namespace' => 'App\Controllers\admin'], function ($routes) {
+        $routes->get('/', 'TargetMarket::index');
+        $routes->get('create', 'TargetMarket::create');
+        $routes->post('store', 'TargetMarket::store');
+        $routes->get('edit/(:num)', 'TargetMarket::edit/$1');
+        $routes->post('update/(:num)', 'TargetMarket::update/$1');
+        $routes->get('delete/(:num)', 'TargetMarket::delete/$1');
+    });
+
+    $routes->group('admin/three_pillars', ['namespace' => 'App\Controllers\admin'], function ($routes) {
+        $routes->get('/', 'ThreePillars::index');
+        $routes->get('create', 'ThreePillars::create');
+        $routes->post('store', 'ThreePillars::store');
+        $routes->get('edit/(:num)', 'ThreePillars::edit/$1');
+        $routes->post('update/(:num)', 'ThreePillars::update/$1');
+        $routes->get('delete/(:num)', 'ThreePillars::delete/$1');
+        $routes->get('detail/(:num)', 'ThreePillars::detail/$1');
+    });
+
+    $routes->group('admin/banner_homepage', ['namespace' => 'App\Controllers\admin'], function ($routes) {
+        $routes->get('/', 'BannerHomepage::index');
+        $routes->get('create', 'BannerHomepage::create');
+        $routes->post('store', 'BannerHomepage::store');
+        $routes->get('edit/(:num)', 'BannerHomepage::edit/$1');
+        $routes->post('update/(:num)', 'BannerHomepage::update/$1');
+        $routes->get('delete/(:num)', 'BannerHomepage::delete/$1');
+    });
+
+    $routes->group('admin/travel_memories', ['namespace' => 'App\Controllers\admin'], function ($routes) {
+        $routes->get('/', 'TravelMemories::index');
+        $routes->get('create', 'TravelMemories::create');
+        $routes->post('store', 'TravelMemories::store');
+        $routes->get('edit/(:num)', 'TravelMemories::edit/$1');
+        $routes->post('update/(:num)', 'TravelMemories::update/$1');
+        $routes->get('delete/(:num)', 'TravelMemories::delete/$1');
+    });
+
+    $routes->group('admin/tour_description', ['namespace' => 'App\Controllers\admin'], function ($routes) {
+        $routes->get('/', 'TourDescription::index');
+        $routes->get('create', 'TourDescription::create');
+        $routes->post('store', 'TourDescription::store');
+        $routes->get('edit/(:num)', 'TourDescription::edit/$1');
+        $routes->post('update/(:num)', 'TourDescription::update/$1');
+        $routes->get('delete/(:num)', 'TourDescription::delete/$1');
+    });
+
+    $routes->group('admin/image_destination', ['namespace' => 'App\Controllers\admin'], function ($routes) {
+        $routes->get('/', 'ImageDestination::index');
+        $routes->get('create', 'ImageDestination::create');
+        $routes->post('store', 'ImageDestination::store');
+        $routes->get('edit/(:num)', 'ImageDestination::edit/$1');
+        $routes->post('update/(:num)', 'ImageDestination::update/$1');
+        $routes->get('delete/(:num)', 'ImageDestination::destroy/$1');
+    });
+
+    $routes->group('admin/image_description_destination', ['namespace' => 'App\Controllers\admin'], function ($routes) {
+        $routes->get('/', 'ImageDescriptionDestination::index');
+        $routes->get('create', 'ImageDescriptionDestination::create');
+        $routes->post('store', 'ImageDescriptionDestination::store');
+        $routes->get('edit/(:num)', 'ImageDescriptionDestination::edit/$1');
+        $routes->post('update/(:num)', 'ImageDescriptionDestination::update/$1');
+        $routes->get('delete/(:num)', 'ImageDescriptionDestination::delete/$1');
+    });
+
+    // Page not found handler
+    $routes->set404Override('App\Controllers\ErrorController::show404');
+});

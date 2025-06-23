@@ -12,7 +12,7 @@ class ImageDestinationModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['destination_id', 'image_name_id', 'image_name_en', 'slug', 'url'];
+    protected $allowedFields    = ['destination_id', 'image_name_id', 'image_name_en', 'slug', 'image', 'alt_image'];
 
     protected bool $allowEmptyInserts = false;
 
@@ -39,4 +39,13 @@ class ImageDestinationModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    // Join with destinations table
+    public function getDescriptionsWithDestination()
+    {
+        return $this->select('image_destination.*, destination.title as title')
+                   ->join('destination', 'destination.id = image_destination.destination_id')
+                   ->orderBy('image_destination.id', 'ASC')
+                   ->findAll();
+    }
 }

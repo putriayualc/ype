@@ -4,15 +4,25 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ImageDescriptionDestinationModel extends Model
+class TravelMemoriesModel extends Model
 {
-    protected $table            = 'image_description_destination';
+    protected $table            = 'travel_memories';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['destination_id', 'title_id', 'title_en', 'slug', 'alt_image', 'url'];
+    protected $allowedFields    = [
+        'heading_id',
+        'heading_en',
+        'section_id',
+        'section_en',
+        'title_id',
+        'title_en',
+        'destination_id',
+        'image',
+        'slug'
+    ];
 
     protected bool $allowEmptyInserts = false;
 
@@ -40,16 +50,11 @@ class ImageDescriptionDestinationModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-     // Join with destinations table
-    public function getImagesWithDestination()
+    // Join with destinations table
+    public function getMemoriesWithDestination()
     {
-        return $this->select('image_description_destination.*, destination.title as destination_name')
-                   ->join('destination', 'destination.id = image_description_destination.destination_id')
-                   ->findAll();
-    }
-
-    public function getByDestination($destination_id)
-    {
-        return $this->where('destination_id', $destination_id)->findAll();
+        return $this->select('travel_memories.*, destination.title as destination_title')
+            ->join('destination', 'destination.id = travel_memories.destination_id')
+            ->findAll();
     }
 }

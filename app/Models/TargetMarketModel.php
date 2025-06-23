@@ -4,15 +4,22 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ImageDescriptionDestinationModel extends Model
+class TargetMarketModel extends Model
 {
-    protected $table            = 'image_description_destination';
-    protected $primaryKey       = 'id';
+    protected $table = 'target_market';
+    protected $primaryKey = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['destination_id', 'title_id', 'title_en', 'slug', 'alt_image', 'url'];
+    protected $allowedFields = [
+        'title_id', 
+        'title_en',
+        'description_id',
+        'description_en',
+        'slug',
+        'image'
+    ];
 
     protected bool $allowEmptyInserts = false;
 
@@ -40,16 +47,9 @@ class ImageDescriptionDestinationModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-     // Join with destinations table
-    public function getImagesWithDestination()
+    public function getBySlug($slug)
     {
-        return $this->select('image_description_destination.*, destination.title as destination_name')
-                   ->join('destination', 'destination.id = image_description_destination.destination_id')
-                   ->findAll();
-    }
-
-    public function getByDestination($destination_id)
-    {
-        return $this->where('destination_id', $destination_id)->findAll();
+        return $this->where('slug', $slug)->first();
     }
 }
+

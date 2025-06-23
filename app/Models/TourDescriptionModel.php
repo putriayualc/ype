@@ -4,15 +4,21 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ImageDescriptionDestinationModel extends Model
+class TourDescriptionModel extends Model
 {
-    protected $table            = 'image_description_destination';
+    protected $table            = 'tour_description';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['destination_id', 'title_id', 'title_en', 'slug', 'alt_image', 'url'];
+    protected $allowedFields    = [
+        'destination_id',
+        'title_id',
+        'title_en',
+        'sub_title_id',
+        'sub_title_en'
+    ];
 
     protected bool $allowEmptyInserts = false;
 
@@ -40,16 +46,10 @@ class ImageDescriptionDestinationModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-     // Join with destinations table
-    public function getImagesWithDestination()
+    public function getDescriptionsWithDestination()
     {
-        return $this->select('image_description_destination.*, destination.title as destination_name')
-                   ->join('destination', 'destination.id = image_description_destination.destination_id')
-                   ->findAll();
-    }
-
-    public function getByDestination($destination_id)
-    {
-        return $this->where('destination_id', $destination_id)->findAll();
+        return $this->select('tour_description.*, destination.title as destination_title')
+            ->join('destination', 'destination.id = tour_description.destination_id')
+            ->findAll();
     }
 }
